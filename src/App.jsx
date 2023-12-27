@@ -17,8 +17,14 @@ function App() {
   }
 
   const handleDeleteTask = (id) => {
-    const updatedArray= tasks.filter((task) => task.id !==id);
-    setTasks(updatedArray);
+    const updatedTaskArray= tasks.filter((task) => task.id !==id);
+    setTasks(updatedTaskArray);
+  }
+
+  const handleToggle = (id) => {
+    setTasks(
+      tasks.map(task => { if(task.id===id) {return {...task, complete: !task.complete}}})
+    )
   }
 
   return (
@@ -30,9 +36,9 @@ function App() {
             <FaMoon style={{color: 'white'}}/>
           </div>
           <div className='form-container'>
-            <Form addNewTask= {addTask}/>
+            <Form addNewTask={addTask}/>
           </div>
-          <FilterCard tasks ={tasks} deleteTask={handleDeleteTask}/>
+          <FilterCard tasks={tasks} deleteTask={handleDeleteTask} toggleHandler={handleToggle}/>
         </div>
 
       </div>

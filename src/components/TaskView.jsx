@@ -1,17 +1,21 @@
 import React from 'react';
 import { MdCancel } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
+import { FaCheck } from "react-icons/fa6";
 
-const TaskView = ({tasks, deleteTask}) => {
+const TaskView = ({task, deleteTask, toggleHandler}) => {
   return (
     <div className='task-view'>
-      <div class="items">
-                        
-        <MdCancel/>
-        <span className='text'>{tasks.taskTitle}</span>
-        <MdDeleteForever onClick={deleteTask}/>
-                        
+      <div className="items">
+       <div className='listItem'>
+          {task.complete ? <FaCheck  onClick={() => toggleHandler(task.id)}/>:<MdCancel onClick={() => toggleHandler(task.id)}/>}
+          <p className={`task.complete && $(canceltext)`}>{task.taskTitle}</p>
+       </div>
+      </div>
+     <div>
+        <MdDeleteForever onClick={() => deleteTask(task.id)}/>
      </div>
+     
     </div>
   )
 }

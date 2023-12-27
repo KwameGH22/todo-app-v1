@@ -95,8 +95,9 @@
 }
 .task-view {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: space-between;
+  align-items: center;
   width: 90%;
   height: 40px;
   /* background-color: white; */
@@ -112,8 +113,20 @@
   
 }
 
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .text {
   color: black;
+  text-decoration: line-through;
+}
+
+.canceltext {
+  color: black;
+  text-decoration: line-through;
 }
 .stats-clear {
   display: flex;

@@ -3,11 +3,12 @@ import FilterSection from './FilterSection';
 import TaskView from './TaskView';
 import StatsClear from './StatsClear';
 
-const FilterCard = ({tasks, deleteTask}) => {
+const FilterCard = ({tasks, deleteTask, toggleHandler}) => {
   return (
     <div className='card-container'>
         <FilterSection/>
-        {tasks.map((task => <TaskView key={task.id} tasks={tasks} deleteTask={deleteTask(tasks.id)}/> ))}
+        {/* {tasks.map((task => <TaskView key={task.id} tasks={tasks} deleteTask={deleteTask(tasks.id)}/> ))} */}
+        {tasks.map(task => (<TaskView key={tasks.id} task={task} deleteTask={deleteTask} toggleHandler={toggleHandler}/>))}
         <StatsClear/>
       
     </div>
